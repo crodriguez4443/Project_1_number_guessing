@@ -15,14 +15,15 @@ def start_game():
     print(random_number)
     guess = int(input("guess a number between 0 and 10. "))
     while guess != random_number:
+
         attempts = 0
         guess_list = []
         if guess < random_number:
-            guess = input(f"your guess of {guess} is lower than the number. Try again. ")
+            guess = int(input(f"your guess of {guess} is lower than the number. Try again. "))
             guess_list.append(attempts)
             continue
         elif guess > random_number:
-            guess = input(f"your guess of {guess} is higher than the number. Try again. ")
+            guess = int(input(f"your guess of {guess} is higher than the number. Try again. "))
             guess_list.append(guess)
             continue
         else:
@@ -41,6 +42,8 @@ def start_game():
                 break
             else:
                 continue
+
+
 
 
 
