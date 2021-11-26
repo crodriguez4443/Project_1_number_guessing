@@ -14,19 +14,21 @@ def start_game():
     random_number = random.randint(0, 10)
     print(random_number)
     guess = int(input("guess a number between 0 and 10. "))
-    while guess != random_number:
-        attempts = 0
-        guess_list = []
-        if guess < random_number:
-            guess = int(input(f"your guess of {guess} is lower than the number. Try again. "))
-            guess_list.append(attempts)
-            print(f"here are your guesses so far: {guess_list}")
-            continue
-        elif guess > random_number:
-            guess = int(input(f"your guess of {guess} is higher than the number. Try again. "))
-            guess_list.append(guess)
-            continue
-        else:
+    if guess != random_number:
+        while guess != random_number:
+            attempts = 0
+            guess_list = []
+            if guess < random_number:
+                guess = int(input(f"your guess of {guess} is lower than the number. Try again. "))
+                guess_list.append(attempts)
+                print(f"here are your guesses so far: {guess_list}")
+                continue
+            elif guess > random_number:
+                guess = int(input(f"your guess of {guess} is higher than the number. Try again. "))
+                guess_list.append(guess)
+                continue
+    if guess == random_number:
+        while guess == random_number:
             print(f"That's correct! it only took you {attempts} attempts!")
             mean_guess = mean(guess_list)
             median_guess = median(guess_list)
@@ -36,13 +38,12 @@ def start_game():
             play_again.lower()
             if play_again == "y":
                 print("sure, lets get started")
-                break
+                start_game()
             elif play_again == "n":
                 print("thanks for playing!")
                 break
             else:
-                continue
-
+                input("sorry that's not a valid response. try again ")
 
 
 
