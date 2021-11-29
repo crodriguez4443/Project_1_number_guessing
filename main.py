@@ -87,8 +87,7 @@ def start_game():
     ( You can add more features/enhancements if you'd like to. )
     """
     # write your code inside this function.
-
-
+#no changes made
 # Kick off the program by calling the start_game function.
 
 start_game()
