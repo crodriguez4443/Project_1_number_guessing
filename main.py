@@ -7,60 +7,54 @@ from statistics import median
 from statistics import mean
 from statistics import mode
 
-print("welcome to my game")  # welcome message
-
+print(">>>>>Guess the Magic Number<<<<<")  # welcome message
 
 def start_game():
     random_number = random.randint(0, 10)
     print(random_number)
     guess = int(input("guess a number between 0 and 10. "))
-    attempts = 0
+    attempts = 1
     guess_list = [guess]
-
-    if guess == random_number:
-        print(f"That's correct! it only took you {attempts} attempts!")
-        print(f"mean: N/A, median: N/A, mode: N/A")
-        play_again = input("would you like to tray again? Y/N")
-        play_again.lower()
-        if play_again == "y":
-            print("sure, lets get started")
-            start_game()
-        elif play_again == "n":
-            print("thanks for playing!")
-        else:
-            print("please try again" )
-    try:
-        while int(guess) != random_number:
-            if 0 < guess < random_number:
+    while True:
+        try:
+            if guess == random_number:
+                print(f"That's correct! it only took you {attempts} attempts!")
+                guess_mean = float(mean(guess_list))
+                guess_median = float(median(guess_list))
+                guess_mode = mode(guess_list)
+                print(f"mean: {guess_mean}, median: {guess_median}, mode: {guess_mode}")
+                break
+            elif 0 < guess < random_number:
                 guess = int(input(f"your guess of {guess} is lower than the number. Try again. "))
                 guess_list.append(guess)
                 attempts += 1
                 print(f"here are your guesses so far: {guess_list}")
-                continue
+                print(f"Number of attempts: {attempts}")
+                # continue?
             elif random_number < guess < 11:
                 guess = int(input(f"your guess of {guess} is higher than the number. Try again. "))
                 guess_list.append(guess)
                 attempts += 1
                 print(f"here are your guesses so far: {guess_list}")
-                continue
+                print(f"Number of attempts: {attempts}")
+                # continue?
             else:
                 raise ValueError
-    except ValueError:
-        guess = int(input("""Provide a whole number between "0" and "10".""" ))
-
-    if guess == random_number:
-        print(f"That's correct! it only took you {attempts} attempts!")
-        guess_mean = float(mean(guess_list))
-        guess_median = float(median(guess_list))
-        guess_mode = mode(guess_list)
-        print(f"mean: {guess_mean}, median: {guess_median}, mode: {guess_mode}")
-        play_again = input("would you like to tray again? Y/N")
+        except ValueError:
+            print("""Provide a whole number between "0" and "10".""")
+    while True:
+        play_again = input("would you like to tray again? Y/N ")
         play_again.lower()
         if play_again == "y":
             print("sure, lets get started")
             start_game()
         elif play_again == "n":
-            print("thanks for playing!")
+            input("thanks for playing!")
+            break
+        else:
+            print("try again!")
+
+
 
 
 
