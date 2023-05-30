@@ -19,6 +19,10 @@ def guessing_game():
                 print("###YOU WON!!!###\n")
                 print("It took you {} tries to guess.\n\n".format(counter))
                 print(f"the high score was {min(highscores)}")
+<<<<<<< HEAD
+=======
+                play_again()
+>>>>>>> 0a07444439311d047d1b388c540d9a5f1bcdd00f
                 break
             elif guess < 0 or guess > 10:
                 raise ValueError("Ooops! That didn't work. Guess a number between 0 and 10")
@@ -28,7 +32,11 @@ def guessing_game():
                 print("guess lower")
         except ValueError:
             print("try a number between 0 and 10")
+<<<<<<< HEAD
     play_again()
+=======
+
+>>>>>>> 0a07444439311d047d1b388c540d9a5f1bcdd00f
 
 def play_again():               
     while True:
@@ -36,7 +44,10 @@ def play_again():
             replay = input("would you like to play again Yes or No? ")
             if replay.lower() == "yes":
                 guessing_game()
+<<<<<<< HEAD
                 break
+=======
+>>>>>>> 0a07444439311d047d1b388c540d9a5f1bcdd00f
             elif replay.lower() == "no":
                 print("Thanks for playing!")
                 break
