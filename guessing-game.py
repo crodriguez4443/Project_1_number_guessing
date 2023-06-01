@@ -9,6 +9,11 @@ highscores = []
 def guessing_game():
     counter = 0
     ran_num = rn.randint(0,10)
+    #If there is no highscore, then you say there is no highscore. Else, you give the min score
+    if highscores:
+        print(f"#### THE CURRENT HIGH SCORE IS {min(highscores)}###\n\n")
+    else:
+        print("#### THERE IS NO CURRENT HIGH SCORE ###\n\n")
     while True:
         try:
             guess = int(input("Guess the random number:\n"))
@@ -24,7 +29,7 @@ def guessing_game():
                 raise ValueError("Ooops! That didn't work. Guess a number between 0 and 10")
             elif 0 <= guess < 10 and guess < ran_num:
                 print("guess higher")
-            elif 0 <= guess >= 10 and guess > ran_num:
+            elif 0 < guess <= 10 and guess > ran_num:
                 print("guess lower")
         except ValueError:
             print("try a number between 0 and 10")
